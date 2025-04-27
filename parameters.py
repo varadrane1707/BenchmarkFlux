@@ -46,16 +46,16 @@ QUANTIZATION_PARAMETERS = {
 
 ALLOWED_DTYPE = ["FP16", "BF16", "FP32"]
 
-ALLOWED_QUANTIZATION_BACKENDS = ["BitsAndBytes", "TorchAO"]
+ALLOWED_QUANTIZATION_BACKENDS = ["None", "BitsAndBytes", "TorchAO"]
 
-ALLOWED_QUANTIZATION_TYPES = ["INT8", "FP8" , "BF16", "FP16"]
+ALLOWED_QUANTIZATION_TYPES = ["None", "INT8", "FP8" , "BF16", "FP16"]
 
 ALLOWED_ATTENTION_MECHANISMS = ["None", "SageAttention2", "FlashAttention"]
 ALLOWED_ATTENTION_CACHING = ["None", "TeaCache", "FirstBlockCache"]
 
-ALLOWED_VAE_OPTIMIZATIONS = ["SlicedVAE", "TiledVAE"]
+ALLOWED_VAE_OPTIMIZATIONS = ["None", "SlicedVAE", "TiledVAE"]
 
-ALLOWED_PARALLEL_GPU_OPTIMIZATIONS = ["ContextParallelismPipeline", "FSDP-XDiT" , "ParallelVAE"]
+ALLOWED_PARALLEL_GPU_OPTIMIZATIONS = ["None", "ContextParallelismPipeline", "FSDP-XDiT" , "ParallelVAE"]
 
-ALLOWED_COMPILATIONS = ["torch.compile"]
+ALLOWED_COMPILATIONS = ["torch.compile", "None"]
 
