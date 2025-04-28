@@ -2,7 +2,7 @@
 
 
 INFERENCE_PARAMETERS = {
-"SQUARE": {
+"astronaut": {
     "prompt": "a tiny astronaut hatching from an egg on the moon",
     "height": 1024,
     "width": 1024,
@@ -10,18 +10,18 @@ INFERENCE_PARAMETERS = {
     "guidance_scale": 3.5,
 },
 
-"LANDSCAPE": {
+"cat": {
     "prompt": "A cat sitting on a couch",
-    "height": 768,
-    "width": 1152,
+    "height": 1024,
+    "width": 1024,
     "num_inference_steps": 28,
     "guidance_scale": 3.5,
 },
 
-"PORTRAIT": {
+"potrait": {
     "prompt": "A potrait of a man with a beard wearing formal attire.",
     "height": 1024,
-    "width": 576,
+    "width": 1024,
     "num_inference_steps": 28,
     "guidance_scale": 3.5,
 }
@@ -44,7 +44,7 @@ QUANTIZATION_PARAMETERS = {
     }
 }
 
-ALLOWED_DTYPE = ["FP16", "BF16","FP32"]
+ALLOWED_DTYPE = ["FP16", "BF16","FP32","FP8"]
 
 ALLOWED_QUANTIZATION_BACKENDS = ["None", "BitsAndBytes", "TorchAO"]
 

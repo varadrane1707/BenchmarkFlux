@@ -63,7 +63,7 @@ class FluxOptimisationConfig(BaseModel):
     parallel_gpu_optimizations: Optional[Literal[tuple(ALLOWED_PARALLEL_GPU_OPTIMIZATIONS)]]
     compilations: Optional[Literal[tuple(ALLOWED_COMPILATIONS)]]
     
-    caching_threshold: float
+    caching_threshold: Optional[float] = 0
 
 class FluxT2I():
     def __init__(self, config: FluxOptimisationConfig):
@@ -87,7 +87,7 @@ class FluxT2I():
         
         self.compilations = config.compilations
         
-        self.caching_threshold = config.get("caching_threshold", 0)
+        self.caching_threshold = config.caching_threshold
         if self.caching_threshold == 0:
             print("Caching threshold is not set, using default value of 0")
     def soft_validations(self):

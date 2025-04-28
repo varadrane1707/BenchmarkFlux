@@ -11,8 +11,8 @@ from para_attn.context_parallel import init_context_parallel_mesh
 from para_attn.context_parallel.diffusers_adapters import parallelize_pipe
 from para_attn.parallel_vae.diffusers_adapters import parallelize_vae
 
-def FBcache(pipeline : FluxPipeline):
-    return apply_cache_on_pipe(pipeline , threshold=1)
+def FBcache(pipeline : FluxPipeline , threshold: float):
+    return apply_cache_on_pipe(pipeline , residual_diff_threshold=threshold)
     
         
         

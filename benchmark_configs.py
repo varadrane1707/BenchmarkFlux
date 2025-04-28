@@ -25,6 +25,10 @@ if RESULTS_FILE.exists():
 # Load all configurations from JSON
 with open("optimization_confings.json", "r") as f:
     configs = json.load(f)
+    
+    #only keep config with name "Dtype_FP8"
+    configs = configs["Dtype_FP8"]
+    configs = {"Dtype_FP8": configs}
 
 # Function to run single inference and measure time
 def run_single_inference(flux_t2i, inference_params, save_path=None):
@@ -56,7 +60,7 @@ def calculate_statistics(times):
     return stats
 
 # Time limit per configuration (3 minutes)
-TIME_LIMIT_SECONDS = 180  # 3 minutes
+TIME_LIMIT_SECONDS = 90  # 90 seconds
 
 # Results storage
 results = existing_results.copy()
@@ -78,6 +82,12 @@ for config_name, config_params in configs.items():
     try:
         # Initialize FluxOptimisationConfig
         flux_config = FluxOptimisationConfig(**config_params)
+        
+        #clear GPU memory and processes
+        import torch
+        torch.cuda.empty_cache()
+        torch.cuda.ipc_collect()
+        torch.cuda.reset_peak_memory_stats()
         
         # Initialize FluxT2I
         flux_t2i = FluxT2I(flux_config)
