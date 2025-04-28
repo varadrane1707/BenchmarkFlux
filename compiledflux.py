@@ -38,7 +38,8 @@ class FluxOptimisationConfig(BaseModel):
         "vae_optimizations": "TiledVAE",
         "parallel_gpu_setup": False,
         "parallel_gpu_optimizations": None,
-        "compilations": None
+        "compilations": None,
+        "caching_threshold": 0.2
     }
     """
     
@@ -62,6 +63,7 @@ class FluxOptimisationConfig(BaseModel):
     parallel_gpu_optimizations: Optional[Literal[tuple(ALLOWED_PARALLEL_GPU_OPTIMIZATIONS)]]
     compilations: Optional[Literal[tuple(ALLOWED_COMPILATIONS)]]
     
+    caching_threshold: float
 
 class FluxT2I():
     def __init__(self, config: FluxOptimisationConfig):
@@ -85,7 +87,9 @@ class FluxT2I():
         
         self.compilations = config.compilations
         
-
+        self.caching_threshold = config.get("caching_threshold", 0)
+        if self.caching_threshold == 0:
+            print("Caching threshold is not set, using default value of 0")
     def soft_validations(self):
         if self.is_quantize:
             if self.quantize_dtype not in ALLOWED_QUANTIZATION_TYPES:
@@ -209,14 +213,14 @@ class FluxT2I():
             self.pipeline.transformer.__class__.enable_teacache = True
             self.pipeline.transformer.__class__.cnt = 0
             # self.pipeline.transformer.__class__.num_steps = num_inference_steps
-            self.pipeline.transformer.__class__.rel_l1_thresh = 0.6 # 0.25 for 1.5x speedup, 0.4 for 1.8x speedup, 0.6 for 2.0x speedup, 0.8 for 2.25x speedup
+            self.pipeline.transformer.__class__.rel_l1_thresh = self.caching_threshold # 0.25 for 1.5x speedup, 0.4 for 1.8x speedup, 0.6 for 2.0x speedup, 0.8 for 2.25x speedup
             self.pipeline.transformer.__class__.accumulated_rel_l1_distance = 0
             self.pipeline.transformer.__class__.previous_modulated_input = None
             self.pipeline.transformer.__class__.previous_residual = None
             return
         elif self.attention_caching == "FirstBlockCache":
             from para_attention import FBcache
-            self.pipeline = FBcache(self.pipeline)
+            self.pipeline = FBcache(self.pipeline , threshold=self.caching_threshold) #ideally 0.1-0.2
             
             
     def compile_pipeline(self):
@@ -231,7 +235,8 @@ class FluxT2I():
         if self.attention_mechanism == "SageAttention2":
             pass
         elif self.attention_mechanism == "FlashAttention":
-            pass
+            from diffusers.models.attention_processor import FusedFluxAttnProcessor2_0
+            self.pipeline.unet.set_attn_processor(FusedFluxAttnProcessor2_0())
             
         if not self.attention_caching == "None":
             self.enable_attention_caching()

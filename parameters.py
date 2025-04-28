@@ -44,13 +44,13 @@ QUANTIZATION_PARAMETERS = {
     }
 }
 
-ALLOWED_DTYPE = ["FP16", "BF16", "FP32"]
+ALLOWED_DTYPE = ["FP16", "BF16","FP32"]
 
 ALLOWED_QUANTIZATION_BACKENDS = ["None", "BitsAndBytes", "TorchAO"]
 
-ALLOWED_QUANTIZATION_TYPES = ["None", "INT8", "FP8" , "BF16", "FP16"]
+ALLOWED_QUANTIZATION_TYPES = ["None", "INT8", "FP8"]
 
-ALLOWED_ATTENTION_MECHANISMS = ["None", "SageAttention2", "FlashAttention"]
+ALLOWED_ATTENTION_MECHANISMS = ["None", "FlashAttention2"]
 ALLOWED_ATTENTION_CACHING = ["None", "TeaCache", "FirstBlockCache"]
 
 ALLOWED_VAE_OPTIMIZATIONS = ["None", "SlicedVAE", "TiledVAE"]
