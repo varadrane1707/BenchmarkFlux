@@ -1,0 +1,466 @@
+{
+    "Dtype_FP16": {
+        "stats": {
+            "p25": 7.17846405506134,
+            "p50": 7.181046366691589,
+            "p90": 7.187765455245971,
+            "p99": 7.656239001750946,
+            "avg": 7.225180168946584,
+            "min": 7.175608396530151,
+            "total_iterations": 12
+        },
+        "config_params": {
+            "model_id": "black-forest-labs/FLUX.1-dev",
+            "device": "cuda",
+            "is_controlnet": false,
+            "controlnet_model_id": null,
+            "quantize": false,
+            "dtype": "FP16",
+            "quantize_dtype": "None",
+            "quantize_backend": "None",
+            "attention_mechanism": "None",
+            "attention_caching": "None",
+            "vae_optimizations": "None",
+            "parallel_gpu_setup": false,
+            "parallel_gpu_optimizations": null,
+            "compilations": null
+        },
+        "last_inference_params": {
+            "prompt": "A potrait of a man with a beard wearing formal attire.",
+            "height": 1024,
+            "width": 1024,
+            "num_inference_steps": 28,
+            "guidance_scale": 3.5,
+            "num_images_per_prompt": 1
+        }
+    },
+    "Dtype_BF16": {
+        "stats": {
+            "p25": 7.088766396045685,
+            "p50": 7.090652942657471,
+            "p90": 7.100055384635925,
+            "p99": 7.244138708114624,
+            "avg": 7.105675975481669,
+            "min": 7.08659291267395,
+            "total_iterations": 12
+        },
+        "config_params": {
+            "model_id": "black-forest-labs/FLUX.1-dev",
+            "device": "cuda",
+            "is_controlnet": false,
+            "controlnet_model_id": null,
+            "quantize": false,
+            "dtype": "BF16",
+            "quantize_dtype": "None",
+            "quantize_backend": "None",
+            "attention_mechanism": "None",
+            "attention_caching": "None",
+            "vae_optimizations": "None",
+            "parallel_gpu_setup": false,
+            "parallel_gpu_optimizations": null,
+            "compilations": null
+        },
+        "last_inference_params": {
+            "prompt": "A cat sitting on a couch",
+            "height": 1024,
+            "width": 1024,
+            "num_inference_steps": 28,
+            "guidance_scale": 3.5,
+            "num_images_per_prompt": 1
+        }
+    },
+    "TeaCache_threshold_0.2": {
+        "stats": {
+            "p25": 5.470015704631805,
+            "p50": 5.479966163635254,
+            "p90": 5.7311482429504395,
+            "p99": 5.738539850711822,
+            "avg": 5.511030375957489,
+            "min": 5.24718451499939,
+            "total_iterations": 16
+        },
+        "config_params": {
+            "model_id": "black-forest-labs/FLUX.1-dev",
+            "device": "cuda",
+            "is_controlnet": false,
+            "controlnet_model_id": null,
+            "quantize": false,
+            "dtype": "FP16",
+            "quantize_dtype": "None",
+            "quantize_backend": "None",
+            "attention_mechanism": "None",
+            "attention_caching": "TeaCache",
+            "vae_optimizations": "None",
+            "parallel_gpu_setup": false,
+            "parallel_gpu_optimizations": null,
+            "compilations": null,
+            "caching_threshold": 0.2
+        },
+        "last_inference_params": {
+            "prompt": "a tiny astronaut hatching from an egg on the moon",
+            "height": 1024,
+            "width": 1024,
+            "num_inference_steps": 28,
+            "guidance_scale": 3.5,
+            "num_images_per_prompt": 1
+        }
+    },
+    "TeaCache_threshold_0.4": {
+        "stats": {
+            "p25": 3.3893730640411377,
+            "p50": 3.4439659118652344,
+            "p90": 3.712900710105896,
+            "p99": 3.7320387530326844,
+            "avg": 3.4848612546920776,
+            "min": 3.1877076625823975,
+            "total_iterations": 24
+        },
+        "config_params": {
+            "model_id": "black-forest-labs/FLUX.1-dev",
+            "device": "cuda",
+            "is_controlnet": false,
+            "controlnet_model_id": null,
+            "quantize": false,
+            "dtype": "FP16",
+            "quantize_dtype": "None",
+            "quantize_backend": "None",
+            "attention_mechanism": "None",
+            "attention_caching": "TeaCache",
+            "vae_optimizations": "None",
+            "parallel_gpu_setup": false,
+            "parallel_gpu_optimizations": null,
+            "compilations": null,
+            "caching_threshold": 0.4
+        },
+        "last_inference_params": {
+            "prompt": "A potrait of a man with a beard wearing formal attire.",
+            "height": 1024,
+            "width": 1024,
+            "num_inference_steps": 28,
+            "guidance_scale": 3.5,
+            "num_images_per_prompt": 1
+        }
+    },
+    "TeaCache_threshold_0.6": {
+        "stats": {
+            "p25": 2.6879730224609375,
+            "p50": 2.689525604248047,
+            "p90": 2.7274255752563477,
+            "p99": 2.742241096496582,
+            "avg": 2.6530949531062955,
+            "min": 2.4399616718292236,
+            "total_iterations": 31
+        },
+        "config_params": {
+            "model_id": "black-forest-labs/FLUX.1-dev",
+            "device": "cuda",
+            "is_controlnet": false,
+            "controlnet_model_id": null,
+            "quantize": false,
+            "dtype": "FP16",
+            "quantize_dtype": "None",
+            "quantize_backend": "None",
+            "attention_mechanism": "None",
+            "attention_caching": "TeaCache",
+            "vae_optimizations": "None",
+            "parallel_gpu_setup": false,
+            "parallel_gpu_optimizations": null,
+            "compilations": null,
+            "caching_threshold": 0.6
+        },
+        "last_inference_params": {
+            "prompt": "A potrait of a man with a beard wearing formal attire.",
+            "height": 1024,
+            "width": 1024,
+            "num_inference_steps": 28,
+            "guidance_scale": 3.5,
+            "num_images_per_prompt": 1
+        }
+    },
+    "FBCache_threshold_0.2": {
+        "stats": {
+            "p25": 2.535408854484558,
+            "p50": 2.568856716156006,
+            "p90": 2.571824073791504,
+            "p99": 2.5983246326446534,
+            "avg": 2.558104130529588,
+            "min": 2.526927947998047,
+            "total_iterations": 31
+        },
+        "config_params": {
+            "model_id": "black-forest-labs/FLUX.1-dev",
+            "device": "cuda",
+            "is_controlnet": false,
+            "controlnet_model_id": null,
+            "quantize": false,
+            "dtype": "FP16",
+            "quantize_dtype": "None",
+            "quantize_backend": "None",
+            "attention_mechanism": "None",
+            "attention_caching": "FirstBlockCache",
+            "vae_optimizations": "None",
+            "parallel_gpu_setup": false,
+            "parallel_gpu_optimizations": null,
+            "compilations": null,
+            "caching_threshold": 0.2
+        },
+        "last_inference_params": {
+            "prompt": "a tiny astronaut hatching from an egg on the moon",
+            "height": 1024,
+            "width": 1024,
+            "num_inference_steps": 28,
+            "guidance_scale": 3.5,
+            "num_images_per_prompt": 1
+        }
+    },
+    "FlashAttention2": {
+        "stats": {
+            "p25": 7.17978823184967,
+            "p50": 7.182530999183655,
+            "p90": 7.185859370231628,
+            "p99": 7.198893287181854,
+            "avg": 7.180788675944011,
+            "min": 7.161438226699829,
+            "total_iterations": 12
+        },
+        "config_params": {
+            "model_id": "black-forest-labs/FLUX.1-dev",
+            "device": "cuda",
+            "is_controlnet": false,
+            "controlnet_model_id": null,
+            "quantize": false,
+            "dtype": "FP16",
+            "quantize_dtype": "None",
+            "quantize_backend": "None",
+            "attention_mechanism": "FlashAttention2",
+            "attention_caching": "None",
+            "vae_optimizations": "None",
+            "parallel_gpu_setup": false,
+            "parallel_gpu_optimizations": "None",
+            "compilations": "None"
+        },
+        "last_inference_params": {
+            "prompt": "A cat sitting on a couch",
+            "height": 1024,
+            "width": 1024,
+            "num_inference_steps": 28,
+            "guidance_scale": 3.5,
+            "num_images_per_prompt": 1
+        }
+    },
+    "FBCache_threshold_0.15": {
+        "stats": {
+            "p25": 3.0621261596679688,
+            "p50": 3.301633834838867,
+            "p90": 3.3185938358306886,
+            "p99": 3.6761690616607656,
+            "avg": 3.2148278331756592,
+            "min": 3.025641918182373,
+            "total_iterations": 25
+        },
+        "config_params": {
+            "model_id": "black-forest-labs/FLUX.1-dev",
+            "device": "cuda",
+            "is_controlnet": false,
+            "controlnet_model_id": null,
+            "quantize": false,
+            "dtype": "FP16",
+            "quantize_dtype": "None",
+            "quantize_backend": "None",
+            "attention_mechanism": "None",
+            "attention_caching": "FirstBlockCache",
+            "vae_optimizations": "None",
+            "parallel_gpu_setup": false,
+            "parallel_gpu_optimizations": null,
+            "compilations": null,
+            "caching_threshold": 0.15
+        },
+        "last_inference_params": {
+            "prompt": "A cat sitting on a couch",
+            "height": 1024,
+            "width": 1024,
+            "num_inference_steps": 28,
+            "guidance_scale": 3.5,
+            "num_images_per_prompt": 1
+        }
+    },
+    "Teacache+FlashAttention2": {
+        "stats": {
+            "p25": 2.485439896583557,
+            "p50": 2.6976468563079834,
+            "p90": 2.73099422454834,
+            "p99": 2.7331278324127197,
+            "avg": 2.628338990672942,
+            "min": 2.44708514213562,
+            "total_iterations": 31
+        },
+        "config_params": {
+            "model_id": "black-forest-labs/FLUX.1-dev",
+            "device": "cuda",
+            "is_controlnet": false,
+            "controlnet_model_id": null,
+            "quantize": false,
+            "dtype": "FP16",
+            "quantize_dtype": "None",
+            "quantize_backend": "None",
+            "attention_mechanism": "FlashAttention2",
+            "attention_caching": "TeaCache",
+            "vae_optimizations": "None",
+            "parallel_gpu_setup": false,
+            "parallel_gpu_optimizations": "None",
+            "compilations": "None",
+            "caching_threshold": 0.6
+        },
+        "last_inference_params": {
+            "prompt": "a tiny astronaut hatching from an egg on the moon",
+            "height": 1024,
+            "width": 1024,
+            "num_inference_steps": 28,
+            "guidance_scale": 3.5,
+            "num_images_per_prompt": 1
+        }
+    },
+    "FBCache+FlashAttention2": {
+        "stats": {
+            "p25": 3.0304982662200928,
+            "p50": 3.270890235900879,
+            "p90": 3.275193786621094,
+            "p99": 3.280909638404846,
+            "avg": 3.1992375320858426,
+            "min": 3.0232949256896973,
+            "total_iterations": 27
+        },
+        "config_params": {
+            "model_id": "black-forest-labs/FLUX.1-dev",
+            "device": "cuda",
+            "is_controlnet": false,
+            "controlnet_model_id": null,
+            "quantize": false,
+            "dtype": "FP16",
+            "quantize_dtype": "None",
+            "quantize_backend": "None",
+            "attention_mechanism": "FlashAttention2",
+            "attention_caching": "FirstBlockCache",
+            "vae_optimizations": "None",
+            "parallel_gpu_setup": false,
+            "parallel_gpu_optimizations": "None",
+            "compilations": "None",
+            "caching_threshold": 0.2
+        },
+        "last_inference_params": {
+            "prompt": "a tiny astronaut hatching from an egg on the moon",
+            "height": 1024,
+            "width": 1024,
+            "num_inference_steps": 28,
+            "guidance_scale": 3.5,
+            "num_images_per_prompt": 1
+        }
+    },
+    "FBCache_threshold_0.3": {
+        "stats": {
+            "p25": 3.066795825958252,
+            "p50": 3.309368848800659,
+            "p90": 3.312525415420532,
+            "p99": 3.3143465423583987,
+            "avg": 3.2318773746490477,
+            "min": 3.061997652053833,
+            "total_iterations": 25
+        },
+        "config_params": {
+            "model_id": "black-forest-labs/FLUX.1-dev",
+            "device": "cuda",
+            "is_controlnet": false,
+            "controlnet_model_id": null,
+            "quantize": false,
+            "dtype": "FP16",
+            "quantize_dtype": "None",
+            "quantize_backend": "None",
+            "attention_mechanism": "None",
+            "attention_caching": "FirstBlockCache",
+            "vae_optimizations": "None",
+            "parallel_gpu_setup": false,
+            "parallel_gpu_optimizations": null,
+            "compilations": null,
+            "caching_threshold": 0.3
+        },
+        "last_inference_params": {
+            "prompt": "A cat sitting on a couch",
+            "height": 1024,
+            "width": 1024,
+            "num_inference_steps": 28,
+            "guidance_scale": 3.5,
+            "num_images_per_prompt": 1
+        }
+    },
+    "FBCache_threshold_0.35": {
+        "stats": {
+            "p25": 1.8420541286468506,
+            "p50": 1.8436532020568848,
+            "p90": 1.8689463138580322,
+            "p99": 2.3443425416946395,
+            "avg": 1.8690217641683726,
+            "min": 1.837637186050415,
+            "total_iterations": 39
+        },
+        "config_params": {
+            "model_id": "black-forest-labs/FLUX.1-dev",
+            "device": "cuda",
+            "is_controlnet": false,
+            "controlnet_model_id": null,
+            "quantize": false,
+            "dtype": "FP16",
+            "quantize_dtype": "None",
+            "quantize_backend": "None",
+            "attention_mechanism": "None",
+            "attention_caching": "FirstBlockCache",
+            "vae_optimizations": "None",
+            "parallel_gpu_setup": false,
+            "parallel_gpu_optimizations": null,
+            "compilations": null,
+            "caching_threshold": 0.35
+        },
+        "last_inference_params": {
+            "prompt": "A cat sitting on a couch",
+            "height": 1024,
+            "width": 1024,
+            "num_inference_steps": 28,
+            "guidance_scale": 3.5,
+            "num_images_per_prompt": 1
+        }
+    },
+    "TorchAO_FP8": {
+        "stats": {
+            "p25": 7.195792138576508,
+            "p50": 7.204745411872864,
+            "p90": 7.254639935493469,
+            "p99": 8.048810539245606,
+            "avg": 7.284778952598572,
+            "min": 7.187554597854614,
+            "total_iterations": 12
+        },
+        "config_params": {
+            "model_id": "black-forest-labs/FLUX.1-dev",
+            "device": "cuda",
+            "is_controlnet": false,
+            "controlnet_model_id": null,
+            "quantize": true,
+            "dtype": "FP16",
+            "quantize_dtype": "FP8",
+            "quantize_backend": "TorchAO",
+            "attention_mechanism": "None",
+            "attention_caching": "None",
+            "vae_optimizations": "None",
+            "parallel_gpu_setup": false,
+            "parallel_gpu_optimizations": null,
+            "compilations": null
+        },
+        "last_inference_params": {
+            "prompt": "a tiny astronaut hatching from an egg on the moon",
+            "height": 1024,
+            "width": 1024,
+            "num_inference_steps": 28,
+            "guidance_scale": 3.5,
+            "num_images_per_prompt": 1
+        }
+    }
+}
