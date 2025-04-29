@@ -1,0 +1,254 @@
+{
+    "DtypeBF16_FlashAttn2+TeaCache_0.6": {
+        "stats": {
+            "p25": 2.6586740016937256,
+            "p50": 2.6637134552001953,
+            "p90": 2.716286611557007,
+            "p99": 4.394227485656737,
+            "avg": 2.7173351254956475,
+            "min": 2.414977550506592,
+            "total_iterations": 29
+        },
+        "config_params": {
+            "model_id": "black-forest-labs/FLUX.1-dev",
+            "device": "cuda",
+            "is_controlnet": false,
+            "controlnet_model_id": null,
+            "quantize": false,
+            "dtype": "BF16",
+            "quantize_dtype": "None",
+            "quantize_backend": "None",
+            "attention_mechanism": "FlashAttention2",
+            "attention_caching": "TeaCache",
+            "vae_optimizations": "None",
+            "parallel_gpu_setup": false,
+            "parallel_gpu_optimizations": null,
+            "compilations": null,
+            "caching_threshold": 0.6
+        },
+        "last_inference_params": {
+            "prompt": "A potrait of a man with a beard wearing formal attire.",
+            "height": 1024,
+            "width": 1024,
+            "num_inference_steps": 28,
+            "guidance_scale": 3.5,
+            "num_images_per_prompt": 1
+        }
+    },
+    "DtypeBF16_FlashAttn2+TeaCache_0.6+TorchAO_FP8": {
+        "stats": {
+            "p25": 2.4330835342407227,
+            "p50": 2.663296699523926,
+            "p90": 2.6948800086975098,
+            "p99": 3.4831408500671377,
+            "avg": 2.627254678357032,
+            "min": 2.4119558334350586,
+            "total_iterations": 31
+        },
+        "config_params": {
+            "model_id": "black-forest-labs/FLUX.1-dev",
+            "device": "cuda",
+            "is_controlnet": false,
+            "controlnet_model_id": null,
+            "quantize": false,
+            "dtype": "BF16",
+            "quantize_dtype": "FP8",
+            "quantize_backend": "TorchAO",
+            "attention_mechanism": "FlashAttention2",
+            "attention_caching": "TeaCache",
+            "vae_optimizations": "None",
+            "parallel_gpu_setup": false,
+            "parallel_gpu_optimizations": null,
+            "compilations": null,
+            "caching_threshold": 0.6
+        },
+        "last_inference_params": {
+            "prompt": "A potrait of a man with a beard wearing formal attire.",
+            "height": 1024,
+            "width": 1024,
+            "num_inference_steps": 28,
+            "guidance_scale": 3.5,
+            "num_images_per_prompt": 1
+        }
+    },
+    "FBCache_threshold_0.3": {
+        "stats": {
+            "p25": 2.0909780263900757,
+            "p50": 2.0945260524749756,
+            "p90": 2.1142955780029298,
+            "p99": 2.3887988281249988,
+            "avg": 2.1087831974029543,
+            "min": 2.0533177852630615,
+            "total_iterations": 35
+        },
+        "config_params": {
+            "model_id": "black-forest-labs/FLUX.1-dev",
+            "device": "cuda",
+            "is_controlnet": false,
+            "controlnet_model_id": null,
+            "quantize": false,
+            "dtype": "FP16",
+            "quantize_dtype": "None",
+            "quantize_backend": "None",
+            "attention_mechanism": "FlashAttention2",
+            "attention_caching": "FirstBlockCache",
+            "vae_optimizations": "None",
+            "parallel_gpu_setup": false,
+            "parallel_gpu_optimizations": null,
+            "compilations": null,
+            "caching_threshold": 0.3
+        },
+        "last_inference_params": {
+            "prompt": "a tiny astronaut hatching from an egg on the moon",
+            "height": 1024,
+            "width": 1024,
+            "num_inference_steps": 28,
+            "guidance_scale": 3.5,
+            "num_images_per_prompt": 1
+        }
+    },
+    "DtypeBF16_FlashAttn2+FBCache_0.3": {
+        "stats": {
+            "p25": 2.0561673641204834,
+            "p50": 2.0596892833709717,
+            "p90": 2.068547010421753,
+            "p99": 2.1318774104118345,
+            "avg": 2.0572520825597973,
+            "min": 2.0162973403930664,
+            "total_iterations": 36
+        },
+        "config_params": {
+            "model_id": "black-forest-labs/FLUX.1-dev",
+            "device": "cuda",
+            "is_controlnet": false,
+            "controlnet_model_id": null,
+            "quantize": false,
+            "dtype": "BF16",
+            "quantize_dtype": "None",
+            "quantize_backend": "None",
+            "attention_mechanism": "FlashAttention2",
+            "attention_caching": "FirstBlockCache",
+            "vae_optimizations": "None",
+            "parallel_gpu_setup": false,
+            "parallel_gpu_optimizations": null,
+            "compilations": null,
+            "caching_threshold": 0.3
+        },
+        "last_inference_params": {
+            "prompt": "a tiny astronaut hatching from an egg on the moon",
+            "height": 1024,
+            "width": 1024,
+            "num_inference_steps": 28,
+            "guidance_scale": 3.5,
+            "num_images_per_prompt": 1
+        }
+    },
+    "DtypeBF16_FlashAttn2+FBCache_0.3+TorchAO_FP8": {
+        "stats": {
+            "p25": 2.018033742904663,
+            "p50": 2.026586890220642,
+            "p90": 2.0665610074996947,
+            "p99": 2.07760377407074,
+            "avg": 2.0373255830062065,
+            "min": 2.01541805267334,
+            "total_iterations": 38
+        },
+        "config_params": {
+            "model_id": "black-forest-labs/FLUX.1-dev",
+            "device": "cuda",
+            "is_controlnet": false,
+            "controlnet_model_id": null,
+            "quantize": false,
+            "dtype": "BF16",
+            "quantize_dtype": "FP8",
+            "quantize_backend": "TorchAO",
+            "attention_mechanism": "FlashAttention2",
+            "attention_caching": "FirstBlockCache",
+            "vae_optimizations": "None",
+            "parallel_gpu_setup": false,
+            "parallel_gpu_optimizations": null,
+            "compilations": null,
+            "caching_threshold": 0.3
+        },
+        "last_inference_params": {
+            "prompt": "A cat sitting on a couch",
+            "height": 1024,
+            "width": 1024,
+            "num_inference_steps": 28,
+            "guidance_scale": 3.5,
+            "num_images_per_prompt": 1
+        }
+    },
+    "DtypeBF16_FlashAttn2+FBCache_0.3+TorchAO_INT8": {
+        "stats": {
+            "p25": 2.0107275247573853,
+            "p50": 2.0179929733276367,
+            "p90": 2.0584107637405396,
+            "p99": 2.288328032493592,
+            "avg": 2.037554232697738,
+            "min": 2.0067148208618164,
+            "total_iterations": 38
+        },
+        "config_params": {
+            "model_id": "black-forest-labs/FLUX.1-dev",
+            "device": "cuda",
+            "is_controlnet": false,
+            "controlnet_model_id": null,
+            "quantize": false,
+            "dtype": "BF16",
+            "quantize_dtype": "INT8",
+            "quantize_backend": "TorchAO",
+            "attention_mechanism": "FlashAttention2",
+            "attention_caching": "FirstBlockCache",
+            "vae_optimizations": "None",
+            "parallel_gpu_setup": false,
+            "parallel_gpu_optimizations": null,
+            "compilations": null,
+            "caching_threshold": 0.3
+        },
+        "last_inference_params": {
+            "prompt": "A potrait of a man with a beard wearing formal attire.",
+            "height": 1024,
+            "width": 1024,
+            "num_inference_steps": 28,
+            "guidance_scale": 3.5,
+            "num_images_per_prompt": 1
+        }
+    },
+    "DtypeBF16_FlashAttn2+TeaCache_0.6+TorchAO_INT8": {
+        "stats": {
+            "p25": 2.5996745824813843,
+            "p50": 2.663465738296509,
+            "p90": 2.676701474189758,
+            "p99": 2.6811621713638307,
+            "avg": 2.604154996573925,
+            "min": 2.4125866889953613,
+            "total_iterations": 32
+        },
+        "config_params": {
+            "model_id": "black-forest-labs/FLUX.1-dev",
+            "device": "cuda",
+            "is_controlnet": false,
+            "controlnet_model_id": null,
+            "quantize": false,
+            "dtype": "BF16",
+            "quantize_dtype": "INT8",
+            "quantize_backend": "TorchAO",
+            "attention_mechanism": "FlashAttention2",
+            "attention_caching": "TeaCache",
+            "vae_optimizations": "None",
+            "parallel_gpu_setup": false,
+            "parallel_gpu_optimizations": null,
+            "compilations": null,
+            "caching_threshold": 0.6
+        },
+        "last_inference_params": {
+            "prompt": "a tiny astronaut hatching from an egg on the moon",
+            "height": 1024,
+            "width": 1024,
+            "num_inference_steps": 28,
+            "guidance_scale": 3.5,
+            "num_images_per_prompt": 1
+        }
+    }
+}

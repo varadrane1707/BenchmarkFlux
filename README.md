@@ -8,7 +8,7 @@ The experimentation focuses on several key optimization strategies:
 1. Data Type Optimizations (FP16 vs BF16)
 2. Attention Mechanism Optimizations (FlashAttention2)
 3. Attention Caching Strategies (TeaCache and FirstBlockCache)
-4. Quantization (TorchAO FP8)
+4. Quantization (TorchAO FP8 and INT8)
 
 ## Benchmark Results
 
@@ -42,11 +42,23 @@ The experimentation focuses on several key optimization strategies:
 | TeaCache (0.6)       | 2.65            | 2.44         | 2.69         | 2.73         | 2.74         |
 | FBCache (0.15)       | 3.21            | 3.03         | 3.30         | 3.32         | 3.68         |
 | FBCache (0.2)        | 2.56            | 2.53         | 2.57         | 2.57         | 2.60         |
-| FBCache (0.3)        | 3.23            | 3.06         | 3.31         | 3.31         | 3.31         |
+| FBCache (0.3)        | 2.05            | 2.09         | 2.10         | 2.12         | 2.30         |
 | FBCache (0.35)       | 1.87            | 1.84         | 1.84         | 1.87         | 2.34         |
 | TeaCache+FA2 (0.6)   | 2.63            | 2.45         | 2.70         | 2.73         | 2.73         |
 | FBCache+FA2 (0.2)    | 3.20            | 3.02         | 3.27         | 3.28         | 3.28         |
 | TorchAO FP8          | 7.28            | 7.19         | 7.20         | 7.25         | 8.05         |
+
+### Advanced Configurations on H100
+
+| Configuration | Average Time (s) | Min Time (s) | P50 Time (s) | P90 Time (s) | P99 Time (s) |
+|--------------|------------------|--------------|--------------|--------------|--------------|
+| BF16+FA2+TeaCache (0.6) | 2.72 | 2.41 | 2.66 | 2.72 | 4.39 |
+| BF16+FA2+TeaCache (0.6)+TorchAO FP8 | 2.63 | 2.41 | 2.66 | 2.69 | 3.48 |
+| FBCache (0.3) | 2.11 | 2.05 | 2.09 | 2.11 | 2.39 |
+| BF16+FA2+FBCache (0.3) | 2.06 | 2.02 | 2.06 | 2.07 | 2.13 |
+| BF16+FA2+FBCache (0.3)+TorchAO FP8 | 2.04 | 2.02 | 2.03 | 2.07 | 2.08 |
+| BF16+FA2+FBCache (0.3)+TorchAO INT8 | 2.04 | 2.01 | 2.02 | 2.06 | 2.29 |
+| BF16+FA2+TeaCache (0.6)+TorchAO INT8 | 2.60 | 2.41 | 2.66 | 2.68 | 2.68 |
 
 ## Key Findings
 
@@ -70,25 +82,37 @@ The experimentation focuses on several key optimization strategies:
      - H100: 0.35 threshold (1.87s)
    - TeaCache shows good performance but generally slower than FBCache
 
-5. **Combined Optimizations**:
-   - Combining FlashAttention2 with caching strategies doesn't provide significant additional benefits
-   - Best performance achieved through FBCache alone
+5. **Quantization**:
+   - TorchAO FP8 shows no significant improvement on H100 in terms of speedup but get 30% reduction in memory
 
-6. **Quantization**:
-   - TorchAO FP8 shows no significant improvement on H100
-   - Slightly slower than baseline FP16
+## Additional Key Findings
 
-## Recommendations
+7. **Advanced Configuration Analysis**:
+   - BF16 with FlashAttention2 and FBCache (0.3) provides the most stable performance
+   - TorchAO quantization (both FP8 and INT8) shows minimal impact on latency
+   - TeaCache configurations consistently show higher latency than FBCache
+   - The combination of BF16+FA2+FBCache (0.3) achieves the best balance of speed and stability
+
+8. **Quantization Impact**:
+   - FP8 quantization provides marginal improvements (~1-2%) when combined with other optimizations
+   - INT8 quantization shows similar performance to FP8
+   - Quantization benefits are more pronounced with TeaCache than FBCache
+
+## Updated Recommendations
 
 1. **For A100**:
-   - Use FBCache with threshold 0.35-0.4 for optimal performance
+   - Use FBCache with threshold 0.3 for optimal performance
    - FlashAttention2 provides good standalone improvement
-   - Avoid combining multiple optimizations unless necessary
 
 2. **For H100**:
    - FBCache with threshold 0.35 provides best performance
    - FlashAttention2 and quantization show minimal benefits
    - Focus on caching strategies rather than attention optimizations
+
+3. **Best Configs**:
+   - Prioritize FBCache with 0.3 threshold as the primary optimization
+   - Use BF16 data type with FlashAttention2 for additional ~2-3% improvement
+   - Consider TorchAO quantization only if memory constraints are a concern
 
 ## Test Configuration
 
@@ -98,3 +122,16 @@ The experimentation focuses on several key optimization strategies:
 - Guidance Scale: 3.5
 - Batch Size: 1 
 - Concurrency: 1
+
+## Implementation Notes
+
+- All benchmarks were run with consistent hardware and software configurations
+- Each configuration was tested with multiple iterations to ensure reliable results
+- Latency measurements include end-to-end pipeline execution
+
+## Future Work
+
+1. **Optimization Opportunities**:
+   - Explore Other Quantization Backends.
+   - Integrating Sage Attention in Diffusers
+   - Test multi-GPU scaling with various configurations

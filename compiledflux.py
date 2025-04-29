@@ -4,8 +4,8 @@ import torch
 from typing import Optional , Literal
 from pydantic import BaseModel
 
-from parameters import INFERENCE_PARAMETERS, QUANTIZATION_PARAMETERS
-from parameters import (ALLOWED_ATTENTION_MECHANISMS, 
+
+from utils.parameters import (ALLOWED_ATTENTION_MECHANISMS, 
                         ALLOWED_ATTENTION_CACHING, 
                         ALLOWED_QUANTIZATION_BACKENDS, 
                         ALLOWED_QUANTIZATION_TYPES, 
@@ -141,13 +141,13 @@ class FluxT2I():
                 raise ValueError("INT8 is the only supported quantization type for BitsAndBytes")
         elif self.quantize_backend == "TorchAO":
             try:
-                from torchao.quantization import autoquant
+                from diffusers import TorchAoConfig
             except ImportError:
                 raise ImportError("torchao is not installed. Please install it with `pip install torchao`")
             if self.quantize_dtype == "INT8":
-                self.quantization_config = autoquant.AutoQuantConfig(quant_type=autoquant.QuantType.INT8)
+                self.quantization_config = quantization_config = TorchAoConfig("int8wo")
             elif self.quantize_dtype == "FP8":
-                self.quantization_config = autoquant.AutoQuantConfig(quant_type=autoquant.QuantType.FP8)
+                self.quantization_config = quantization_config = TorchAoConfig("float8wo")
             else :
                 raise ValueError("INT8 or FP8 is the only supported quantization type for TorchAO")  
         return 
@@ -157,8 +157,6 @@ class FluxT2I():
             "FP16": torch.float16,
             "BF16": torch.bfloat16,
             "FP32": torch.float32,
-            "TF32": torch.float32,  # TF32 is handled differently in CUDA settings
-            "FP8": torch.float8_e4m3fn  # if supported by your PyTorch version
         }
         return dtype_mapping.get(dtype_str)
 
@@ -206,7 +204,7 @@ class FluxT2I():
     
     def enable_attention_caching(self):
         if self.attention_caching == "TeaCache":
-            from teacache import teacache_forward
+            from utils.teacache import teacache_forward
             import types
             # Properly bind the teacache_forward as a method
             self.pipeline.transformer.forward = types.MethodType(teacache_forward, self.pipeline.transformer)
@@ -219,7 +217,7 @@ class FluxT2I():
             self.pipeline.transformer.__class__.previous_residual = None
             return
         elif self.attention_caching == "FirstBlockCache":
-            from para_attention import FBcache
+            from utils.para_attention import FBcache
             self.pipeline = FBcache(self.pipeline , threshold=self.caching_threshold) #ideally 0.1-0.2
             
             

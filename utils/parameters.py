@@ -29,31 +29,27 @@ INFERENCE_PARAMETERS = {
 
 
 QUANTIZATION_PARAMETERS = {
-    "BitsAndBytes": {
-        "INT8": {
-            "quant_type": "int8",
-        },
-    },
+    
     "TorchAO": {
-        "INT8": {
-            "quant_type": "int8dq",
-        },
         "FP8": {
-            "quant_type": "float8wo_e5m2"
+            "quant_type": "float8wo"
+        },
+        "INT8": {
+            "quant_type": "int8wo"
         },
     }
 }
 
 ALLOWED_DTYPE = ["FP16", "BF16","FP32","FP8"]
 
-ALLOWED_QUANTIZATION_BACKENDS = ["None", "BitsAndBytes", "TorchAO"]
+ALLOWED_QUANTIZATION_BACKENDS = ["None", "TorchAO"]
 
-ALLOWED_QUANTIZATION_TYPES = ["None", "INT8", "FP8"]
+ALLOWED_QUANTIZATION_TYPES = ["None", "FP8", "INT8"]
 
 ALLOWED_ATTENTION_MECHANISMS = ["None", "FlashAttention2"]
 ALLOWED_ATTENTION_CACHING = ["None", "TeaCache", "FirstBlockCache"]
 
-ALLOWED_VAE_OPTIMIZATIONS = ["None", "SlicedVAE", "TiledVAE"]
+ALLOWED_VAE_OPTIMIZATIONS = ["None", "TiledVAE"]
 
 ALLOWED_PARALLEL_GPU_OPTIMIZATIONS = ["None", "ContextParallelismPipeline", "FSDP-XDiT" , "ParallelVAE"]
 

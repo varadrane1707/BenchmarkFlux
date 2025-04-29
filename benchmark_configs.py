@@ -5,7 +5,7 @@ import numpy as np
 import os
 from pathlib import Path
 from compiledflux import FluxOptimisationConfig, FluxT2I
-from parameters import INFERENCE_PARAMETERS
+from utils.parameters import INFERENCE_PARAMETERS
 
 # Create output directories
 RESULTS_DIR = Path("benchmark_results")
@@ -23,12 +23,12 @@ if RESULTS_FILE.exists():
         existing_results = json.load(f)
 
 # Load all configurations from JSON
-with open("optimization_confings.json", "r") as f:
+with open("configs/complex_configs.json", "r") as f:
     configs = json.load(f)
     
-    #only keep config with name "Dtype_FP8"
-    configs = configs["Dtype_FP8"]
-    configs = {"Dtype_FP8": configs}
+    # #only keep config with name "Dtype_FP8"
+    # configs = configs["Dtype_FP8"]
+    # configs = {"Dtype_FP8": configs}
 
 # Function to run single inference and measure time
 def run_single_inference(flux_t2i, inference_params, save_path=None):
